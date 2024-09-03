@@ -121,7 +121,7 @@ const FormValidation = () => {
     <div className="container">
       <form className="form"  onSubmit={handleSubmit}>
         <i className="bi bi-telegram bi-whatsapp" style={{color:"green",background:"white",cursor:'pointer'}} onClick={()=>{
-          const phoneNumber="8858258387";
+          const phoneNumber="918858258387";
           const encodedMessage="Hello Mohammad Anees, How are you "
           const url = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
           window.open(url, '_blank');
