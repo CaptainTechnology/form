@@ -42,14 +42,3 @@ export default function AdminPanel() {
 
     );
 }
-
-// export async function getServerSideProps() {
-//   const res = await fetch('http://localhost:3000/api/get-form-data');
-//   const initialData = await res.json();
-
-//   return {
-//     props: {
-//       initialData,
-//     },
-//   };
-// }

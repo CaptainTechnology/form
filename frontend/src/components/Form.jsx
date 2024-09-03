@@ -101,14 +101,13 @@ const FormValidation = () => {
             "email_address": email,
             "address": message
         }
-      console.log(data)
     try {
         const response = await axios.post(`${backend}/save`, data, {
           headers: {
             'Content-Type': 'application/json'
           }
         });
-        console.log('Response:', response.data);
+        console.log(backend);
         toast.success("data is stored")
       } catch (error) {
         console.error('Error sending data:', error);
