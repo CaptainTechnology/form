@@ -8,7 +8,6 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const FormValidation = () => {
   const backend=process.env.REACT_APP_BACKEND_URL;
-  console.log(backend);
   const [name, setName] = useState('');
   const [contact, setContact] = useState('');
   const [email, setEmail] = useState('');
@@ -104,7 +103,7 @@ const FormValidation = () => {
         }
       console.log(data)
     try {
-        const response = await axios.post('http://localhost:4000/save', data, {
+        const response = await axios.post(`${backend}/save`, data, {
           headers: {
             'Content-Type': 'application/json'
           }
