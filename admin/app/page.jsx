@@ -1,15 +1,28 @@
 "use client";
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 export default function AdminPanel() {
     const url = process.env.NEXT_PUBLIC_BACKEND_URL;
     let [data, setdata] = useState([]);
+    const fetch_item=async()=>{
+        const ID=toast.loading("Fetching data please wait...");
+        try{
+            axios.get(`${url}/get_data`).then((Response => {
+                setdata(Response.data.data);
+                toast.update(ID, { render: "Data fetched successfully", type: "success", isLoading: false, autoClose: 500 });
+            }))
+        }catch(err){
+            toast.update(ID, { render: "Server is down", type: "error", isLoading: false });
+        }
+    }
     useEffect(() => {
-        axios.get(`${url}/get_data`).then((Response => {
-            setdata(Response.data.data);
-        }))
+       fetch_item();
     }, []);
+    
 
     return (
 
@@ -37,6 +50,8 @@ export default function AdminPanel() {
                 })
             }
             </div>
+
+            <ToastContainer/>
 
         </>
 
